@@ -1,10 +1,11 @@
-import { Trading } from "./traiding";
+import { Routes, Route, Link } from "react-router-dom";
+import { Trending } from "../pages/trending";
+import { Home } from "pages/home";
 
 
 
 export const App = () => {
 
-  const API = 'e7c930d9ee21da94f8fc3257d387eced'
 
 const options = {
   method: 'GET',
@@ -16,7 +17,14 @@ const options = {
   
   return (
     <div>
-      <Trading options={options} />
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/trending">Trending</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/trending" element={<Trending options={options} />} />
+      </Routes>
     </div>
   );
 };
