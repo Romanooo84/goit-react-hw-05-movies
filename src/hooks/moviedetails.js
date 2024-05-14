@@ -1,4 +1,5 @@
-export const movieData = (movieId) => {
+
+export const movieData = (movieId, setDetails) => {
     const options={
      method: 'GET',
     headers: {
@@ -9,9 +10,14 @@ export const movieData = (movieId) => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}language=en-US`, options)
         .then(response => response.json())
         .then(data => {
-            console.log(data.backdrop_path
-)  
+            console.log(data)
+            const movieDetails = {
+                title: data.title,
+                overview: data.overview
+
             }
-            )
-        .catch(err => console.error(err));
-}
+            setDetails(movieDetails)
+   
+        })
+           
+        }

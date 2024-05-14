@@ -1,11 +1,25 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { movieData } from "hooks/moviedetails";
 
 export const MovieDetails = () => {
-
     const { movieId } = useParams();
-    movieData(movieId)
+    const [details, setDetails] = useState()
+    
+    useEffect(() => {
+        movieData(movieId, setDetails)
+    }, []);
+
     return (
-        <h2>{movieId}</h2>
+         <div>
+            {details ? (
+                <div>
+                    <h2>{details.title}</h2>
+                    <p>{details.overview}</p>
+                </div>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </div>
     )
 }
