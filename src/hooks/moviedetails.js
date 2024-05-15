@@ -16,16 +16,17 @@ export const movieData = (movieId, setDetails) => {
             )})
             const movieDetails = (
                 <div>
-                <div>
-                    <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt=''></img>
-                </div>
-                <div>
-                    <p>{data.title}</p>
-                    <p>User Score: {data.vote_average}</p>
-                    <p>{data.overview}</p>
-                    <p>Genres</p>
-                    <div>{moiveGenres}</div>
-                </div>
+                    <div>
+                        <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt=''></img>
+                    </div>
+                    <div>
+                        <p>{data.title}</p>
+                        <p>User Score: {data.vote_average}</p>
+                        <p>Overview</p>
+                        <p>{data.overview}</p>
+                        <p>Genres</p>
+                        <div>{moiveGenres}</div>
+                    </div>
                 </div>
             );
             setDetails(movieDetails);
