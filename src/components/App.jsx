@@ -1,6 +1,5 @@
 import { Routes, Route, Link} from "react-router-dom";
 import { Home } from "pages/home";
-import { Movies } from "pages/movies";
 import { MovieDetails } from "./moviedetails";
 
 
