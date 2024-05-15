@@ -9,28 +9,30 @@ export const trending = (setMovies) => {
   }
   }
   fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
-  .then(response => response.json())
-  .then(data => {
-      console.log(data);
-      const markup = data.results.map(movie => {
-          console.log(movie.original_title);
-          if ('original_title' in movie) {
-              console.log('title');
-              return (
-                  <li key={movie.id} id={movie.id}>
-                      <Link to={`${movie.id}`}>{movie.title}</Link>
-                  </li>
-              );
-          } else if ('original_name' in movie) {
-              return (
-                  <li key={movie.id} id={movie.id}>
-                      <Link to={`${movie.id}`}>{movie.name}</Link>
-                  </li>
-              );
-          }
-      });
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const markup = data.results.map(movie => {
+                console.log(movie.original_title);
+                if ('original_title' in movie) {
+                    console.log('title');
+                    return (
+                        <li key={movie.id} id={movie.id}>
+                            <Link to={`${movie.id}`}>{movie.title}</Link>
+                        </li>
+                    );
+                } else if ('original_name' in movie) {
+                    return (
+                        <li key={movie.id} id={movie.id}>
+                            <Link to={`${movie.id}`}>{movie.name}</Link>
+                        </li>
+                    );
+                }
+                // Dodaj zwracanie null dla innych przypadków
+                return null;
+            });
 
-      setMovies(markup);
-  })
-  .catch(err => console.error(err));
+            setMovies(markup);
+        })
+        .catch(err => console.error(err));
 }
