@@ -7,15 +7,14 @@ export const MovieDetails = () => {
     const [details, setDetails] = useState()
     
     useEffect(() => {
-        movieData(movieId, setDetails)
-    }, [ movieId ]);
+            movieData(movieId, setDetails);
+    }, [movieId]);
 
     return (
          <div>
             {details ? (
                 <div>
-                    <h2>{details.title}</h2>
-                    <p>{details.overview}</p>
+                {details}
                 </div>
             ) : (
                 <p>Loading...</p>

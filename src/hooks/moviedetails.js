@@ -10,14 +10,21 @@ export const movieData = (movieId, setDetails) => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}language=en-US`, options)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            const movieDetails = {
-                title: data.title,
-                overview: data.overview
-
-            }
-            setDetails(movieDetails)
-   
+            console.log(data.genres
+            );
+            let moiveGenres = data.genres.map((gen, index)=>{return(
+                    <p key={index} >{gen.name}</p>
+            )})
+            const movieDetails = (
+                <div>
+                    <p>{data.title}</p>
+                    <p>User Score: {data.vote_average}</p>
+                    <p>{data.overview}</p>
+                    <p>Genres</p>
+                    <div>{moiveGenres}</div>
+                </div>
+            );
+            setDetails(movieDetails);
         })
            
         }
