@@ -8,7 +8,7 @@ export const MovieDetails = () => {
     
     useEffect(() => {
         movieData(movieId, setDetails)
-    }, []);
+    }, [ movieId ]);
 
     return (
          <div>
