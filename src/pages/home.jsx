@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { trending } from "hooks/trending";
-import { Route } from "react-router-dom";
+
 
 export const Home = () => {
   
