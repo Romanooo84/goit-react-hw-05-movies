@@ -10,18 +10,22 @@ export const movieData = (movieId, setDetails) => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}language=en-US`, options)
         .then(response => response.json())
         .then(data => {
-            console.log(data.genres
-            );
+            console.log(data);
             let moiveGenres = data.genres.map((gen, index)=>{return(
                     <p key={index} >{gen.name}</p>
             )})
             const movieDetails = (
+                <div>
+                <div>
+                    <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt=''></img>
+                </div>
                 <div>
                     <p>{data.title}</p>
                     <p>User Score: {data.vote_average}</p>
                     <p>{data.overview}</p>
                     <p>Genres</p>
                     <div>{moiveGenres}</div>
+                </div>
                 </div>
             );
             setDetails(movieDetails);
