@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 export const MovieCast = () => {
     const { movieId } = useParams();
     const [cast, setCast] = useState()
+    
 
     useEffect(() => {
          MovieCastData(movieId, setCast);

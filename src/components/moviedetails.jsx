@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { movieData } from "hooks/moviedetails";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export const MovieDetails = () => {
     const { movieId } = useParams();
@@ -22,6 +22,7 @@ export const MovieDetails = () => {
                     <li id={movieId}>
                         <Link to="reviews">Reviews</Link>
                     </li>
+                    <Outlet />
                 </div>
             ) : (
                 <p>Loading...</p>
