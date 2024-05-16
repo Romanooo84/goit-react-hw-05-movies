@@ -15,7 +15,7 @@ export const trending = (setMovies) => {
                 if ('original_title' in movie) {
                     return (
                         <li key={movie.id} id={movie.id}>
-                            <Link to={`${movie.id}`}>{movie.title}</Link>
+                            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
                         </li>
                     );
                 } else if ('original_name' in movie) {
