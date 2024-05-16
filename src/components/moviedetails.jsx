@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { movieData } from "hooks/moviedetails";
+import { Link } from "react-router-dom";
 
 export const MovieDetails = () => {
     const { movieId } = useParams();
@@ -14,7 +15,13 @@ export const MovieDetails = () => {
          <div>
             {details ? (
                 <div>
-                {details}
+                    {details}
+                    <li id={movieId}>
+                        <Link to="cast">Cast</Link>
+                    </li>
+                    <li id={movieId}>
+                        <Link to="reviews">Reviews</Link>
+                    </li>
                 </div>
             ) : (
                 <p>Loading...</p>
