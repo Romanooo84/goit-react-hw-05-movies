@@ -15,7 +15,7 @@ export const MovieDetails = () => {
 
     return (
          <div>
-            <Link  to={backLinkHref}>Back to products</Link >
+            <Link  to={backLinkHref}>Back to list</Link >
             {details ? (
                 <div>
                     {details}
