@@ -1,9 +1,9 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { Movies } from "pages/movies";
 import { Home } from "pages/home";
-import { MovieDetails } from "./moviedetails";
-import { MovieCast } from "./moviecast";
-import { MovieReviews } from "./movierevievs";
+import { MovieDetails } from "../pages/moviedetails";
+import { MovieCast } from "../pages/moviecast";
+import { MovieReviews } from "../pages/movierevievs";
 
 
 export const App = () => {
@@ -21,8 +21,9 @@ export const App = () => {
           <Route path="/movies" element={<Movies />} />
           <Route path='/movies/:movieId' element={<MovieDetails />}>
             <Route path='/movies/:movieId/cast' element={<MovieCast />} />
+            <Route path='/movies/:movieId/reviews' element={<MovieReviews />} /> 
           </Route>
-          <Route path='reviews' element={<MovieReviews />} /> 
+          
         </Routes>
     </div>
     </> 
