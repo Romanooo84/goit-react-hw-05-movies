@@ -15,6 +15,7 @@ export const movieData = (movieId, setDetails) => {
             )})
             const movieDetails = (
                 <div>
+                    
                     <div>
                         <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt=''></img>
                     </div>
