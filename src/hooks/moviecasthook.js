@@ -11,11 +11,12 @@ const options = {
 fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`, options)
   .then(response => response.json())
   .then(data => {
-    console.log('działa');
+    console.log(data);
     let markup = data.cast.map((cast, index) => (
       <div key={index}>
+        <img src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`} alt="aaa"></img>
         <p>{cast.name}</p>
-        <p>{cast.character}</p>
+        <p>Character: {cast.character}</p>
       </div>
     ));
       setCast(markup)

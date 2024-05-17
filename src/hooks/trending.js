@@ -11,6 +11,7 @@ export const trending = (setMovies) => {
   fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             const markup = data.results.map(movie => {
                 if ('original_title' in movie) {
                     return (
@@ -21,7 +22,7 @@ export const trending = (setMovies) => {
                 } else if ('original_name' in movie) {
                     return (
                         <li key={movie.id} id={movie.id}>
-                            <Link to={`${movie.id}`}>{movie.name}</Link>
+                            <Link to={`/movies/${movie.id}`}>{movie.name}</Link>
                         </li>
                     );
                 }
