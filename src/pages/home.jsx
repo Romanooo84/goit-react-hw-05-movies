@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { trending } from "hooks/trending";
+import css from '../css/app.module.css'
 
 
 export const Home = () => {
@@ -11,6 +12,6 @@ export const Home = () => {
   }, [])
   
   return (
-    <div>{movies}</div>
+    <div className={css.trending}>{movies}</div>
   )
   }

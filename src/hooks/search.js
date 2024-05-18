@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import css from "../css/app.module.css"
 
-export const trending = (setMovies) => {
+export const Search = (setFoundMovies, searchData) => {
     const options={
      method: 'GET',
     headers: {
@@ -9,9 +9,9 @@ export const trending = (setMovies) => {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlN2M5MzBkOWVlMjFkYTk0ZjhmYzMyNTdkMzg3ZWNlZCIsInN1YiI6IjY1ZTlhZDJhNmEyMjI3MDE4Njk2NTExNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.j1C6buHnPvlB2eInbvledvTmiFFIKSym7oMjouLo9AE'
   }
   }
-  fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+  fetch(`https://api.themoviedb.org/3/search/movie?query=${searchData}&include_adult=false&language=en-US&page=1`, options)
         .then(response => response.json())
-      .then(data => {
+        .then(data => {
             console.log(data)
             const markup = data.results.map(movie => {
                 if ('original_title' in movie) {
@@ -34,7 +34,7 @@ export const trending = (setMovies) => {
                 return null;
             });
 
-            setMovies(markup);
+            setFoundMovies(markup);
         })
         .catch(err => console.error(err));
 }
